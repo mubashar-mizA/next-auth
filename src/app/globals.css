@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* app/globals.css */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+/* Hide the typed.js blinking cursor */
+.typing-cursor {
+  display: none;
+}
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
