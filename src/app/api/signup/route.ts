@@ -15,10 +15,10 @@ export const POST = async (req: Request) => {
     try {
         const newUser = await User.create({ email, password });
         await newUser.save();
-        console.log("========> User Created successfully");
+        // console.log("========> User Created successfully");
         return new NextResponse("User created", { status: 200 });
-    } catch (error) {
-        console.log("failed to save user");
-        return new NextResponse("Failed to create user", { status: 500 });
+    } catch (error:any) {
+        // console.log("failed to save user");
+        return new NextResponse(error, { status: 500 });
     }
 }
