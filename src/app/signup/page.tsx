@@ -81,7 +81,7 @@ const Page = () => {
                     </div>
                 </div>
             </div>
-            <div className="m-3 p-4 mt-10 absolute bottom-3 font-mono">
+            <div className="m-3 p-4 mt-10 absolute lg:bottom-3 bottom-0 font-mono">
                 <p className="relative p-4">Education is a matter of life and death for Pakistan</p>
                 <q className="absolute p-3 right-5 bottom-0">Muhammad Ali Jinnah</q>
             </div>

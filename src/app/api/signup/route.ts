@@ -1,6 +1,6 @@
-import User from "@/models/user.model"
-import connect from "@/utils/db"
-import { NextResponse } from "next/server"
+import User from "@/models/user.model";
+import connect from "@/utils/db";
+import { NextResponse } from "next/server";
 
 interface RequestBody {
     email: string;
@@ -9,16 +9,18 @@ interface RequestBody {
 
 export const POST = async (req: Request) => {
     const { email, password }: RequestBody = await req.json();
-    
+
     await connect();
 
     try {
         const newUser = await User.create({ email, password });
         await newUser.save();
-        // console.log("========> User Created successfully");
         return new NextResponse("User created", { status: 200 });
-    } catch (error:any) {
-        // console.log("failed to save user");
-        return new NextResponse(error, { status: 500 });
+    } catch (error: unknown) {
+        // Check if error is an instance of Error to safely access the message
+        if (error instanceof Error) {
+            return new NextResponse(error.message, { status: 500 });
+        }
+        return new NextResponse("Internal Server Error", { status: 500 });
     }
 }
