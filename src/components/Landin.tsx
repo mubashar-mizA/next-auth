@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import Typed from 'typed.js';
-import CommingSoon from './CommingSoon';
+
 
 const Landing = () => {
     useEffect(() => {
